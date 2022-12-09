@@ -12,13 +12,8 @@ export function SelfControlledAccordion(props: AccordionPropsType) {
     const [collapsed, setCollapsed] = useState<boolean>(true)
 
     return (
-        <div onClick={() => {
-            setCollapsed(!collapsed)
-        }}>
-            <button>
-                <AccordionTitle title={props.title}/>
-            </button>
-            {/*{props.collapsed ? '' : <AccordionBody/>}*/}
+        <div>
+            <AccordionTitle title={props.title} collapsed={collapsed} setCollapsed={setCollapsed}/>
             {collapsed ? '' : <AccordionBody/>}
         </div>
     )

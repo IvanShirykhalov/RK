@@ -2,14 +2,15 @@ import React from "react";
 
 type StarPropsType = {
     selected: boolean
+    setValue: (value: 0 | 1 | 2 | 3 | 4 | 5) => void
+    value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
 
 export function Star(props: StarPropsType) {
     return (
         <>
-            {props.selected ? <span><b> Star </b></span> : <span> Star </span>}
-
+            <span onClick={() => props.setValue(props.value)}>{props.selected ? <b> Star </b> : ' Star '}</span>
 
         </>
     )
