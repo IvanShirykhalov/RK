@@ -1,14 +1,12 @@
 import React from 'react';
-
 import './App.css';
-import {Accordion} from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {SelfControlledAccordion} from "./components/SelfControlledAccordion/SelfControlledAccordion";
+import {SelfControlledRating} from "./components/SelfControlledRating/SelfControlledRating";
 
 function App() {
     return (
-        <div>
+        <div className={'App'}>
             {/*
             <PageTitle title={'This is APP component'}/>
             <Rating value={2}/>
@@ -22,6 +20,7 @@ function App() {
             */}
             <OnOff/>
             <SelfControlledAccordion title={'Self control'}/>
+            <SelfControlledRating/>
         </div>
     );
 }
