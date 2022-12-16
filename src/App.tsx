@@ -5,11 +5,13 @@ import {SelfControlledAccordion} from "./components/SelfControlledAccordion/Self
 import {SelfControlledRating} from "./components/SelfControlledRating/SelfControlledRating";
 import {Rating} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
+import {SelfControlledOnOff} from "./components/OnOff/SelfControlledOnOff";
 
 function App() {
 
     const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    const [on, setOn] = useState<boolean>(true)
 
     return (
         <div className={'App'}>
@@ -25,6 +27,7 @@ function App() {
             <Rating value={ratingValue} setRatingValue={setRatingValue}/>
             <SelfControlledRating/>
             <Accordion title={'Menu'} setAccordionCollapsed={setAccordionCollapsed} collapsed={accordionCollapsed}/>
+            <SelfControlledOnOff setOn={setOn} on={on}/>
 
             {/*            <OnOff/>
             <SelfControlledAccordion title={'Self control'}/>
