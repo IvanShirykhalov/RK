@@ -1,26 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {OnOff} from "./components/OnOff/OnOff";
 import {SelfControlledAccordion} from "./components/SelfControlledAccordion/SelfControlledAccordion";
 import {SelfControlledRating} from "./components/SelfControlledRating/SelfControlledRating";
+import {Rating} from "./components/Rating/Rating";
+import {Accordion} from "./components/Accordion/Accordion";
 
 function App() {
+
+    const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+
     return (
         <div className={'App'}>
-            {/*
-            <PageTitle title={'This is APP component'}/>
+
+            {/*            <PageTitle title={'This is APP component'}/>
             <Rating value={2}/>
             <Accordion title={'Menu'} collapsed={false}/>
             <Accordion title={'Users'} collapsed={true}/>
             <Rating value={1}/>
             <Rating value={2}/>
             <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
-            */}
-            <OnOff/>
-            <SelfControlledAccordion title={'Self control'}/>
+            <Rating value={4}/>*/}
+            <Rating value={ratingValue} setRatingValue={setRatingValue}/>
             <SelfControlledRating/>
+            <Accordion title={'Menu'} setAccordionCollapsed={setAccordionCollapsed} collapsed={accordionCollapsed}/>
+
+            {/*            <OnOff/>
+            <SelfControlledAccordion title={'Self control'}/>
+            <SelfControlledRating/>*/}
         </div>
     );
 }
