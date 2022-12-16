@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-import {OnOff} from "./components/OnOff/OnOff";
-import {SelfControlledAccordion} from "./components/SelfControlledAccordion/SelfControlledAccordion";
+
+
 import {SelfControlledRating} from "./components/SelfControlledRating/SelfControlledRating";
 import {Rating} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
-import {SelfControlledOnOff} from "./components/OnOff/SelfControlledOnOff";
+import {ControlledOnOff} from "./components/OnOff/ControlledOnOff";
+
 
 function App() {
 
@@ -26,10 +27,10 @@ function App() {
             <Rating value={4}/>*/}
             <Rating value={ratingValue} setRatingValue={setRatingValue}/>
             <SelfControlledRating/>
-            <Accordion title={'Menu'} setAccordionCollapsed={setAccordionCollapsed} collapsed={accordionCollapsed}/>
-            <SelfControlledOnOff setOn={setOn} on={on}/>
+            <Accordion title={'Menu'} setAccordionCollapsed={()=>setAccordionCollapsed(!accordionCollapsed)} collapsed={accordionCollapsed}/>
+            <ControlledOnOff setOn={setOn} on={on}/>
 
-            {/*            <OnOff/>
+            {/*            <ControlledOnOff/>
             <SelfControlledAccordion title={'Self control'}/>
             <SelfControlledRating/>*/}
         </div>

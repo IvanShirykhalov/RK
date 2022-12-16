@@ -4,7 +4,7 @@ type OnOffPropsType = {
     // on: boolean
 }
 
-export const OnOff = (props: OnOffPropsType) => {
+export const SelfControlledOnOff = (props: OnOffPropsType) => {
 
     const [on, setOn] = useState<boolean>(true)
 

@@ -5,7 +5,7 @@ type OnOffPropsType = {
     setOn: (on: boolean) => void
 }
 
-export const SelfControlledOnOff = (props: OnOffPropsType) => {
+export const ControlledOnOff = (props: OnOffPropsType) => {
 
 
     const onStyle = {
