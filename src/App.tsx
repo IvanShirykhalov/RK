@@ -12,7 +12,7 @@ function App() {
 
     const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-    const [on, setOn] = useState<boolean>(true)
+    const [on, setOn] = useState<boolean>(false)
 
     return (
         <div className={'App'}>
@@ -27,7 +27,8 @@ function App() {
             <Rating value={4}/>*/}
             <Rating value={ratingValue} setRatingValue={setRatingValue}/>
             <SelfControlledRating/>
-            <Accordion title={'Menu'} setAccordionCollapsed={()=>setAccordionCollapsed(!accordionCollapsed)} collapsed={accordionCollapsed}/>
+            <Accordion title={'Menu'} setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}
+                       collapsed={accordionCollapsed}/>
             <ControlledOnOff setOn={setOn} on={on}/>
 
             {/*            <ControlledOnOff/>
