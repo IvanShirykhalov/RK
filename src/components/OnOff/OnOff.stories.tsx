@@ -15,7 +15,7 @@ const Template1: ComponentStory<typeof ControlledOnOff> = (args) => <ControlledO
 export const OnStory = Template1.bind({});
 OnStory.args = {
     on: true,
-    setOn: action('Value change')
+    setOn: action(`Value change`)
 };
 
 export const OffStory = Template1.bind({});
