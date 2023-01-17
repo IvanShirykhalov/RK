@@ -4,6 +4,6 @@ type AccordionTitlePropsType = {
     title: string
 }
 
-export function AccordionTitle(props: AccordionTitlePropsType) {
+export const AccordionTitle = React.memo((props: AccordionTitlePropsType) => {
     return <h3>{props.title}</h3>
-}
+})

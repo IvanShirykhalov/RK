@@ -4,7 +4,7 @@ type OnOffPropsType = {
     // on: boolean
 }
 
-export const UncontrolledOnOff = (props: OnOffPropsType) => {
+export const UncontrolledOnOff = React.memo((props: OnOffPropsType) => {
 
     const [on, setOn] = useState<boolean>(true)
 
@@ -45,4 +45,4 @@ export const UncontrolledOnOff = (props: OnOffPropsType) => {
             }}></div>
         </div>
     );
-};
+})

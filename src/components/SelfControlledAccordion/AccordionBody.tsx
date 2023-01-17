@@ -1,6 +1,6 @@
 import React from "react";
 
-export function AccordionBody() {
+export const  AccordionBody = React.memo(() => {
 
     console.log('AccordionBody')
 
@@ -9,4 +9,4 @@ export function AccordionBody() {
         <li>2</li>
         <li>3</li>
     </ul>
-}
+})

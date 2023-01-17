@@ -10,7 +10,7 @@ type AccordionPropsType = {
 
 
 
-export function SelfControlledAccordion(props: AccordionPropsType) {
+export const SelfControlledAccordion = React.memo((props: AccordionPropsType) => {
 
     console.log('SelfControlledAccordion')
 
@@ -27,4 +27,4 @@ export function SelfControlledAccordion(props: AccordionPropsType) {
             {!state.collapsed && <AccordionBody/>}
         </div>
     )
-}
+})

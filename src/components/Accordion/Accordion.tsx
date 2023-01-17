@@ -15,11 +15,11 @@ type AccordionPropsType = {
     onClick: (v: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+export const Accordion = React.memo((props: AccordionPropsType) => {
     return (
         <div onClick={props.setAccordionCollapsed}>
             <AccordionTitle title={props.title}/>
             {props.collapsed ? <AccordionBody items={props.items} onClick={props.onClick}/> : ''}
         </div>
     )
-}
+})

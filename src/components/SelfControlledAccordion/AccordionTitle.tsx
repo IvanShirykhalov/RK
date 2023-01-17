@@ -7,9 +7,9 @@ type AccordionTitlePropsType = {
 
 }
 
-export function AccordionTitle(props: AccordionTitlePropsType) {
+export const AccordionTitle = React.memo((props: AccordionTitlePropsType) => {
 
     console.log('AccordionTitle')
 
     return <h3 onClick={props.setCollapsed}>{props.title}</h3>
-}
+})

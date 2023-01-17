@@ -8,7 +8,7 @@ type StarPropsType = {
 }
 
 
-export function Star(props: StarPropsType) {
+export const Star = React.memo((props: StarPropsType) => {
     return (
         <span onClick={() => {
             props.setRatingValue(props.value)
@@ -17,4 +17,4 @@ export function Star(props: StarPropsType) {
 
         </span>
     )
-}
+})

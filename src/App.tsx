@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
-
-
 import {SelfControlledRating} from "./components/SelfControlledRating/SelfControlledRating";
 import {Rating} from "./components/Rating/Rating";
-import {Accordion} from "./components/Accordion/Accordion";
 import {ControlledOnOff} from "./components/OnOff/ControlledOnOff";
 import {SelfControlledAccordion} from "./components/SelfControlledAccordion/SelfControlledAccordion";
 
