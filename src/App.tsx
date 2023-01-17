@@ -6,6 +6,7 @@ import {SelfControlledRating} from "./components/SelfControlledRating/SelfContro
 import {Rating} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
 import {ControlledOnOff} from "./components/OnOff/ControlledOnOff";
+import {SelfControlledAccordion} from "./components/SelfControlledAccordion/SelfControlledAccordion";
 
 
 function App() {
@@ -27,8 +28,9 @@ function App() {
             <Rating value={4}/>*/}
             <Rating value={ratingValue} setRatingValue={setRatingValue}/>
             <SelfControlledRating/>
-            <Accordion title={'Menu'} setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}
-                       collapsed={accordionCollapsed}/>
+            {/*<Accordion title={'Menu'} setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}
+                       collapsed={accordionCollapsed}/>*/}
+            <SelfControlledAccordion title={'test'}/>
             <ControlledOnOff setOn={setOn} on={on}/>
 
             {/*            <ControlledOnOff/>
