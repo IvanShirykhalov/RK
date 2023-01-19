@@ -1,4 +1,4 @@
-import React, {memo, useState} from 'react'
+import React, {memo, useMemo, useState} from 'react'
 
 
 type UserType = {
@@ -16,14 +16,20 @@ const Users = React.memo((props: UserType) => {
     return <div>{props.users.map((u, i) => <div key={i}>{u}</div>)}</div>
 })
 export const Example1 = () => {
-
+    console.log('Example1')
 
     const [count, setCount] = useState<number>(1)
     const [users, setUsers] = useState<string[]>(['Oleg', 'Gleb', 'Fedor'])
 
+    const newArr = useMemo(() => {
+        const newArr = users.filter(u => u.toLowerCase().indexOf('o') > -1)
+        return newArr
+    }, [users])
+
     return <>
         <button onClick={() => setCount(count + 1)}>+</button>
-        <NewMessagesCounter count={count}/>
-        <Users users={users}/>
+        {/*<NewMessagesCounter count={count}/>*/}
+        {count}
+        <Users users={newArr}/>
     </>
 }

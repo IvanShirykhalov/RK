@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Example1} from "./stories/ReactMemo";
+import {UseMemo} from "./components/UseMemo";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
