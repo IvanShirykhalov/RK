@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 
 
 function generateData() {
@@ -8,21 +8,35 @@ function generateData() {
 }
 
 export const UseState = () => {
+    const [count, setCount] = useState<number>(0)
+    const [fake, setFake] = useState<number>(0)
     console.log('useState')
 
     //const initValue = useMemo(generateData, [])
 
-    const changer = (state: number) => state + 1
+    useEffect(() => {
+        console.log('useEffect every render')
+        document.title = count.toString()
+    })    // every render
+    useEffect(() => {
+        console.log('useEffect only first render')
+        document.title = count.toString()
+    }, [])   // only first render (componentDidMount)
+    useEffect(() => {
+        console.log('useEffect first render and count changed')
+        document.title = count.toString()
+    }, [count]) // first render and count changed
 
-    const [count, setCount] = useState<number>(generateData)
+    //const changer = (state: number) => state + 1
 
 
     return (
         <>
-            <button onClick={() => setCount(changer)}>
-                +
-            </button>
-            {count}
+            Count: {count} Fake: {fake}
+            <div>
+                <button onClick={() => setCount(count + 1)}>+</button>
+                <button onClick={() => setFake(fake + 1)}>+</button>
+            </div>
         </>
     );
 };
