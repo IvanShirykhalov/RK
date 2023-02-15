@@ -41,3 +41,41 @@ export const UseState = () => {
     );
 };
 
+
+export const UseEffectSetTimeOut = () => {
+    const [count, setCount] = useState<number>(1)
+    const [fake, setFake] = useState<number>(1)
+    console.log('useState')
+
+    //const initValue = useMemo(generateData, [])
+
+    // useEffect(() => {
+    //     console.log('useEffect every render')
+    //     document.title = count.toString()
+    // })    // every render
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         console.log('setTimeout')
+    //         document.title = count.toString()
+    //     }, 1000)
+    // }, [count])
+
+    useEffect(() => {
+        setInterval(() => {
+            setCount((state)=>state + 1)
+        }, 1000)
+    }, [])
+
+    return (
+        <>
+            count: {count}, fake: {fake}
+            {/*Count: {count} Fake: {fake}*/}
+            {/*<div>*/}
+            {/*    <button onClick={() => setCount(count + 1)}>+</button>*/}
+            {/*    <button onClick={() => setFake(fake + 1)}>+</button>*/}
+            {/*</div>*/}
+        </>
+    );
+
+}

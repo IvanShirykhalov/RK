@@ -30,6 +30,7 @@ export const Example1 = () => {
     }, [books])
 
 
+
     /*const newArr = useMemo(() => {
         return books.filter(u => u.toLowerCase().indexOf('o') > -1)
     }, [books])*/
