@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Example1} from "./components/UseCallback";
+import {UseState} from "./stories/UseState";
 
 
 const root = ReactDOM.createRoot(
@@ -10,7 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <Example1/>
+        <UseState/>
     </React.StrictMode>
 );
 
