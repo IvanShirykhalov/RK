@@ -63,7 +63,7 @@ export const UseEffectSetTimeOut = () => {
 
     useEffect(() => {
         setInterval(() => {
-            setCount((state)=>state + 1)
+            setCount((state) => state + 1)
         }, 1000)
     }, [])
 
@@ -78,4 +78,36 @@ export const UseEffectSetTimeOut = () => {
         </>
     );
 
+}
+
+
+export const Watch = () => {
+
+
+    const getTime = () => {
+        const date = new Date(),
+            h = date.getHours(),
+            m = date.getMinutes(),
+            s = date.getSeconds()
+
+
+        return {h, m, s}
+    }
+
+
+    const [date, setDate] = useState(getTime())
+
+    useEffect(() => {
+        setInterval(() => {
+            setDate(getTime())
+        }, 1000)
+    }, [])
+
+
+    return (
+        <div style={{fontSize: '40px'}}>
+            {`${date.h}:${date.m}:${date.s}`}
+        </div>
+
+    )
 }
