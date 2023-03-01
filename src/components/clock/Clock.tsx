@@ -45,14 +45,25 @@ export const Clock = () => {
 
     const twoDigitTime = (time: number) => time < 10 ? `0${time}` : time
 
+    const amPmClock = (hours: number) => hours > 12 ? hours - 12 : hours
+
     return (
-        <div>
-            <span>{twoDigitTime(date.getHours())}</span>
-            :
-            <span>{twoDigitTime(date.getMinutes())}</span>
-            :
-            <span>{twoDigitTime(date.getSeconds())}</span>
-        </div>
+        <>
+            <div>
+                <span>{twoDigitTime(date.getHours())}</span>
+                :
+                <span>{twoDigitTime(date.getMinutes())}</span>
+                :
+                <span>{twoDigitTime(date.getSeconds())}</span>
+            </div>
+            <div>
+                <span>{amPmClock(date.getHours())}</span>
+                :
+                <span>{twoDigitTime(date.getMinutes())}</span>
+                :
+                <span>{twoDigitTime(date.getSeconds())}</span>
+            </div>
+        </>
     )
 }
 
