@@ -81,33 +81,3 @@ export const UseEffectSetTimeOut = () => {
 }
 
 
-export const Watch = () => {
-
-
-    const getTime = () => {
-        const date = new Date(),
-            h = date.getHours(),
-            m = date.getMinutes(),
-            s = date.getSeconds()
-
-
-        return {h, m, s}
-    }
-
-
-    const [date, setDate] = useState(getTime())
-
-    useEffect(() => {
-        setInterval(() => {
-            setDate(getTime())
-        }, 1000)
-    }, [])
-
-
-    return (
-        <div style={{fontSize: '40px'}}>
-            {`${date.h}:${date.m}:${date.s}`}
-        </div>
-
-    )
-}

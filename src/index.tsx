@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {Watch} from "./stories/UseState";
+import {Clock} from "./components/clock/Clock";
 
 
 const root = ReactDOM.createRoot(
@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <Watch/>
+        <Clock/>
     </React.StrictMode>
 );
 
