@@ -1,32 +1,15 @@
 import React, {useEffect, useState} from 'react';
 
-export const Clock = () => {
-//     const getTime = () => {
-//         const date = new Date(),
-//             h = date.getHours(),
-//             m = date.getMinutes(),
-//             s = date.getSeconds()
-//
-//
-//         return {h, m, s}
-//     }
-//
-//
-//     const [date, setDate] = useState(getTime())
-//
-//     useEffect(() => {
-//         setInterval(() => {
-//             setDate(getTime())
-//         }, 1000)
-//     }, [])
-//
-//
-//     return (
-//         <div style={{fontSize: '40px'}}>
-//             {`${date.h}:${date.m}:${date.s}`}
-//         </div>
-//
-//     )
+import {TwentyFourHours} from "./TwentyFourHours";
+import {AnalogClock} from "./AnalogClock";
+import {AmPm} from "./AmPm";
+
+type PropsType = {
+    mode?: 'analog' | 'digital' | 'am/pm'
+}
+
+export const Clock = (props: PropsType) => {
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -45,25 +28,48 @@ export const Clock = () => {
 
     const twoDigitTime = (time: number) => time < 10 ? `0${time}` : time
 
-    const amPmClock = (hours: number) => hours > 12 ? hours - 12 : hours
+    const AmPmClock = (hours: number) => hours > 10 ? twoDigitTime(hours - 12) : twoDigitTime(hours)
 
-    return (
-        <>
-            <div>
-                <span>{twoDigitTime(date.getHours())}</span>
-                :
-                <span>{twoDigitTime(date.getMinutes())}</span>
-                :
-                <span>{twoDigitTime(date.getSeconds())}</span>
-            </div>
-            <div>
-                <span>{amPmClock(date.getHours())}</span>
-                :
-                <span>{twoDigitTime(date.getMinutes())}</span>
-                :
-                <span>{twoDigitTime(date.getSeconds())}</span>
-            </div>
-        </>
-    )
+
+    let view
+
+    switch (props.mode) {
+        case "digital":
+
+            return view =
+                <TwentyFourHours
+                    hours={twoDigitTime(date.getHours())}
+                    minutes={twoDigitTime(date.getMinutes())}
+                    seconds={twoDigitTime(date.getSeconds())}
+                />
+
+        case "am/pm":
+        default:
+            return view =
+
+                <AmPm
+                    hours={twoDigitTime(+AmPmClock(date.getHours()))}
+                    minutes={twoDigitTime(date.getMinutes())}
+                    seconds={twoDigitTime(date.getSeconds())}
+                />
+        case 'analog':
+
+            return view =
+                <AnalogClock
+                    hours={AmPmClock(date.getHours())}
+                    minutes={twoDigitTime(date.getMinutes())}
+                    seconds={twoDigitTime(date.getSeconds())}
+                />
+
+    }
+
+
 }
+
+export type ClockPropsType = {
+    hours: number | string
+    minutes: number | string
+    seconds: number | string
+}
+
 
