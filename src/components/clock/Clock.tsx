@@ -44,7 +44,7 @@ export const Clock = (props: PropsType) => {
                 />
 
         case "am/pm":
-        default:
+
             return view =
 
                 <AmPm
@@ -53,7 +53,7 @@ export const Clock = (props: PropsType) => {
                     seconds={twoDigitTime(date.getSeconds())}
                 />
         case 'analog':
-
+        default:
             return view =
                 <AnalogClock
                     hours={AmPmClock(date.getHours())}
