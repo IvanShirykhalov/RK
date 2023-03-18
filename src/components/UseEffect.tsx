@@ -53,3 +53,27 @@ export const KeysTrackerExample = () => {
     );
 };
 
+export const SetTimeoutExample = () => {
+
+
+    const [text, setText] = useState<string>('')
+
+    console.log('component render ' + text)
+
+    useEffect(() => {
+        const interval = setTimeout(() => {
+            setText('3 sec')
+        }, 3000)
+
+        return (() => {
+            clearInterval(interval)
+        })
+
+    }, [])
+
+    return (
+        <span>
+            x: {text}
+        </span>
+    );
+};
